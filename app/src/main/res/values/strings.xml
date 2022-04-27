@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">AD340Profile</string>
+    <string name="name_and_date">Chau, Jeffrey 04/26/2022</string>
+    <string name="please_input_your_name">Please input your name</string>
+    <string name="please_input_your_email_address">Please input your email address</string>
+    <string name="please_input_your_username">Please input your username</string>
+    <string name="submit">Submit</string>
+    <string name="email_address_error">Email address is in the wrong format</string>
+    <string name="forgot_data_error">You forgot to input some data on the form</string>
+    <string name="thanks_text">Thanks for Signing Up %1$s!</string>
+    <string name="eighteen_error">Whoops, looks like you\'re not 18</string>
+    <string name="select_your_date_of_birth">Select your Date of Birth</string>
+    <string name="date">%1$d/%2$d/%3$d</string>
+    <string name="back">Back</string>
+    <string name="image_of_goat">A picture of a goat</string>
+    <string name="please_input_your_occupation">Please input your occupation</string>
+    <string name="please_input_a_description_of_yourself">Please input a description of yourself</string>
+</resources>
