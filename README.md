@@ -1,2 +1,2 @@
-[![<JeffreyDChau>](https://circleci.com/<gh>/<ORG_NAME>/<AD340ProfileApp>.svg?style=svg)](<https://app.circleci.com/pipelines/github/JeffreyDChau/AD340ProfileApp>)
+[![<JeffreyDChau>](https://circleci.com/gh/JeffreyDChau/AD340ProfileApp.svg?style=svg)](https://app.circleci.com/pipelines/github/JeffreyDChau/AD340ProfileApp)
 [![codecov](https://codecov.io/gh/JeffreyDChau/AD340ProfileApp/branch/master/graph/badge.svg?token=NCR3CB6HWB)](https://codecov.io/gh/JeffreyDChau/AD340ProfileApp)
