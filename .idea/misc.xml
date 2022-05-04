@@ -4,7 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/jeffr/AndroidStudioProjects/AD340Profile/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jeffr/AndroidStudioProjects/AD340Profile/app/src/main/res/layout/activity_matches_fragment.xml" value="0.13858695652173914" />
         <entry key="..\:/Users/jeffr/AndroidStudioProjects/AD340Profile/app/src/main/res/layout/activity_welcome_screen.xml" value="0.4703703703703704" />
+        <entry key="..\:/Users/jeffr/AndroidStudioProjects/AD340Profile/app/src/main/res/layout/fragment_matches.xml" value="0.296195652173913" />
+        <entry key="..\:/Users/jeffr/AndroidStudioProjects/AD340Profile/app/src/main/res/layout/fragment_profile.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jeffr/AndroidStudioProjects/AD340Profile/app/src/main/res/layout/fragment_settings.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jeffr/AndroidStudioProjects/AD340Profile/app/src/main/res/layout/toolbar.xml" value="0.296195652173913" />
+        <entry key="..\:/Users/jeffr/AndroidStudioProjects/AD340Profile/app/src/main/res/menu/drawer_view.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
