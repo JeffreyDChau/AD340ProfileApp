@@ -24,7 +24,7 @@ public class MatchesFragment extends Fragment {
         matchesList.add(new Matches("Mark T", "Really cool guy", false, "https://i.imgur.com/kobQVOD.jpg"));
         matchesList.add(new Matches("Michael J", "Super cool guy", true, "https://i.imgur.com/fF3Iiih.jpg"));
         matchesList.add(new Matches("Alex T", "Less cool guy", false, "https://i.imgur.com/z4OKVlA.jpg"));
-
+        matchesList.add(new Matches("Random Duck", "Here to party", true, "https://i.imgur.com/riUVT6S.jpeg"));
         // Set up the RecyclerView
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
