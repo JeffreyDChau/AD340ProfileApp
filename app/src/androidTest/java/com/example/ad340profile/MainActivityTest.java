@@ -25,11 +25,188 @@ import org.junit.runner.RunWith;
 public class MainActivityTest {
 
     @Rule
-    public ActivityScenarioRule mainActivityRule = new ActivityScenarioRule<>(MainActivity.class);
+    public ActivityScenarioRule<MainActivity> mainActivityRule =
+            new ActivityScenarioRule<>(MainActivity.class);
 
     @Test
-    public void displayText(){
-        onView(withId(R.id.nameAndDate)).check(matches(withText("Chau, Jeffrey 04/26/2022")));
+    public void canGoThroughForm() {
+        onView(withId(R.id.nameField)).perform(replaceText("Jeffrey Chau"));
+        onView(withId(R.id.emailAddress)).perform(replaceText("Jchau@gmail.com"));
+        onView(withId(R.id.usernameField)).perform(replaceText("JeffJeff"));
+        onView(withId(R.id.descriptionField)).perform(replaceText("Description of me"));
+        onView(withId(R.id.occupationField)).perform(replaceText("Metalsmith"));
+
+        onView(withId(R.id.dobButton)).perform(click());
+
+        onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
+                .perform(PickerActions.setDate(2000, 2 + 1, 5));
+
+        onView(withId(android.R.id.button1)).perform(click());
+
+        onView(withId(R.id.submitButton)).perform(click());
+
+        onView(withId(R.id.name))
+                .check(matches(withText("Jeffrey Chau")));
+    }
+
+    @Test
+    public void cannotGoThroughFormWithMissingName() {
+        onView(withId(R.id.emailAddress)).perform(replaceText("Jchau@gmail.com"));
+        onView(withId(R.id.usernameField)).perform(replaceText("JeffJeff"));
+        onView(withId(R.id.descriptionField)).perform(replaceText("Description of me"));
+        onView(withId(R.id.occupationField)).perform(replaceText("Metalsmith"));
+
+        onView(withId(R.id.dobButton)).perform(click());
+
+        onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
+                .perform(PickerActions.setDate(2000, 2 + 1, 5));
+
+        onView(withId(android.R.id.button1)).perform(click());
+
+        onView(withId(R.id.submitButton)).perform(click());
+
+        onView(withText("Jeffrey Chau")).check(doesNotExist());
+    }
+
+    @Test
+    public void cannotGoThroughFormWithMissingEmail() {
+        onView(withId(R.id.nameField)).perform(replaceText("Jeffrey Chau"));
+        onView(withId(R.id.usernameField)).perform(replaceText("JeffJeff"));
+        onView(withId(R.id.descriptionField)).perform(replaceText("Description of me"));
+        onView(withId(R.id.occupationField)).perform(replaceText("Metalsmith"));
+
+        onView(withId(R.id.dobButton)).perform(click());
+
+        onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
+                .perform(PickerActions.setDate(2000, 2 + 1, 5));
+
+        onView(withId(android.R.id.button1)).perform(click());
+
+        onView(withId(R.id.submitButton)).perform(click());
+
+        onView(withText("JChau@gmail.com")).check(doesNotExist());
+    }
+
+    @Test
+    public void cannotGoThroughFormWithMissingUsername() {
+        onView(withId(R.id.nameField)).perform(replaceText("Jeffrey Chau"));
+        onView(withId(R.id.emailAddress)).perform(replaceText("Jchau@gmail.com"));
+        onView(withId(R.id.descriptionField)).perform(replaceText("Description of me"));
+        onView(withId(R.id.occupationField)).perform(replaceText("Metalsmith"));
+
+        onView(withId(R.id.dobButton)).perform(click());
+
+        onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
+                .perform(PickerActions.setDate(2000, 2 + 1, 5));
+
+        onView(withId(android.R.id.button1)).perform(click());
+
+        onView(withId(R.id.submitButton)).perform(click());
+
+        onView(withText("JeffJeff")).check(doesNotExist());
+    }
+
+    @Test
+    public void cannotGoThroughFormWithMissingDescription() {
+        onView(withId(R.id.nameField)).perform(replaceText("Jeffrey Chau"));
+        onView(withId(R.id.emailAddress)).perform(replaceText("Jchau@gmail.com"));
+        onView(withId(R.id.usernameField)).perform(replaceText("JeffJeff"));
+        onView(withId(R.id.occupationField)).perform(replaceText("Metalsmith"));
+
+        onView(withId(R.id.dobButton)).perform(click());
+
+        onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
+                .perform(PickerActions.setDate(2000, 2 + 1, 5));
+
+        onView(withId(android.R.id.button1)).perform(click());
+
+        onView(withId(R.id.submitButton)).perform(click());
+
+        onView(withText("Description of me")).check(doesNotExist());
+    }
+
+    @Test
+    public void cannotGoThroughFormWithMissingOccupation() {
+        onView(withId(R.id.nameField)).perform(replaceText("Jeffrey Chau"));
+        onView(withId(R.id.emailAddress)).perform(replaceText("Jchau@gmail.com"));
+        onView(withId(R.id.usernameField)).perform(replaceText("JeffJeff"));
+        onView(withId(R.id.descriptionField)).perform(replaceText("Description of me"));
+
+        onView(withId(R.id.dobButton)).perform(click());
+
+        onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
+                .perform(PickerActions.setDate(2000, 2 + 1, 5));
+
+        onView(withId(android.R.id.button1)).perform(click());
+
+        onView(withId(R.id.submitButton)).perform(click());
+
+        onView(withText("Metalsmith")).check(doesNotExist());
+    }
+
+    @Test
+    public void cannotGoThroughFormWithBadEmail() {
+        onView(withId(R.id.nameField)).perform(replaceText("Jeffrey Chau"));
+        onView(withId(R.id.emailAddress)).perform(replaceText("Jchau@gmail"));
+        onView(withId(R.id.usernameField)).perform(replaceText("JeffJeff"));
+        onView(withId(R.id.descriptionField)).perform(replaceText("Description of me"));
+        onView(withId(R.id.occupationField)).perform(replaceText("Metalsmith"));
+
+        onView(withId(R.id.dobButton)).perform(click());
+
+        onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
+                .perform(PickerActions.setDate(2000, 2 + 1, 5));
+
+        onView(withId(android.R.id.button1)).perform(click());
+
+        onView(withId(R.id.submitButton)).perform(click());
+
+        onView(withText("Jchau@gmail")).check(doesNotExist());
+    }
+
+    @Test
+    public void cannotGoThroughFormWithYoungDob() {
+        onView(withId(R.id.nameField)).perform(replaceText("Jeffrey Chau"));
+        onView(withId(R.id.emailAddress)).perform(replaceText("Jchau@gmail.com"));
+        onView(withId(R.id.usernameField)).perform(replaceText("JeffJeff"));
+        onView(withId(R.id.descriptionField)).perform(replaceText("Description of me"));
+        onView(withId(R.id.occupationField)).perform(replaceText("Metalsmith"));
+
+        onView(withId(R.id.dobButton)).perform(click());
+
+        onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
+                .perform(PickerActions.setDate(2021, 2 + 1, 5));
+
+        onView(withId(android.R.id.button1)).perform(click());
+
+        onView(withId(R.id.submitButton)).perform(click());
+
+        onView(withText("3/5/2000")).check(doesNotExist());
+    }
+
+    @Test
+    public void canGoBackFromWelcomeScreen() {
+        onView(withId(R.id.nameField)).perform(replaceText("Jeffrey Chau"));
+        onView(withId(R.id.emailAddress)).perform(replaceText("Jchau@gmail.com"));
+        onView(withId(R.id.usernameField)).perform(replaceText("JeffJeff"));
+        onView(withId(R.id.descriptionField)).perform(replaceText("Description of me"));
+        onView(withId(R.id.occupationField)).perform(replaceText("Metalsmith"));
+
+        onView(withId(R.id.dobButton)).perform(click());
+
+        onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
+                .perform(PickerActions.setDate(2000, 2 + 1, 5));
+
+        onView(withId(android.R.id.button1)).perform(click());
+
+        onView(withId(R.id.submitButton)).perform(click());
+
+        onView(withId(R.id.name))
+                .check(matches(withText("Jeffrey Chau")));
+
+        onView(withId(R.id.backButton)).perform(click());
+
+        onView(withId(R.id.nameField)).check(matches(withText("Jeffrey Chau")));
     }
 
 }
