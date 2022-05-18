@@ -43,13 +43,20 @@ public class MatchesRecyclerViewAdapter extends RecyclerView.Adapter<MatchesView
             if (match.isLiked()) {
                 holder.likeButton.setImageResource(R.drawable.heart_icon);
             } else {
-                holder.likeButton.setImageResource(R.drawable.heart_icon);
+                holder.likeButton.setImageResource(R.drawable.negheart_icon);
             }
             holder.likeButton.setOnClickListener((v) -> {
+                if (match.isLiked()) {
                 Toast.makeText(v.getContext(),
-                        String.format(v.getContext().getString(R.string.liked_message),
+                        String.format(v.getContext().getString(R.string.disliked_message),
                                 match.getName()), Toast.LENGTH_LONG).show();
+                } else{
+                    Toast.makeText(v.getContext(),
+                            String.format(v.getContext().getString(R.string.liked_message),
+                                    match.getName()), Toast.LENGTH_LONG).show();
+                }
                 onClickCallback.accept(match);
+
             });
         }
     }
